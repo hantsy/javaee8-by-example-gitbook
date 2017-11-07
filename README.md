@@ -1,3 +1,7 @@
-# My Awesome Book
+# Java EE 8 By Example
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+Java EE 8 had been released for some days, I have spent some time on updating myself to the newest Java EE 8 technology stack. 
+
+This book is my notes when I refreshed my knowledge to Java EE 8.
+
+
