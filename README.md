@@ -12,7 +12,7 @@ And the source codes of this book is also hosted on my github, check [here](http
 
 ## Online Gitbook
 
-This book will be synchronized to Gitbook, go here](https://hantsy.gitbooks.io/java-ee-8-by-example/content/) to read it online.
+This book will be synchronized to Gitbook, go [here](https://hantsy.gitbooks.io/java-ee-8-by-example/content/) to read it online.
 
 ## Contribution
 
