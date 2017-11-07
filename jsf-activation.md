@@ -114,17 +114,134 @@ Here is the steps I created a workable JSF 2.3 applicatoin in Java EE 8.
 
 6. Declare a `@FacesConfig` annotated class to activate CDI in JSF 2.3.
 
-  ```java
-   @FacesConfig(
-   // Activates CDI build-in beans
-   version = JSF_2_3 
-   )
-   public class ConfigurationBean {
+	```java
+	@FacesConfig(
+	// Activates CDI build-in beans
+	version = JSF_2_3 
+	)
+	public class ConfigurationBean {
 
-   }
-  ```
+	}
+	```
+  
+   Open the source code of `FacesConfig`, you will know it is a standard CDI  `Qualifier`.
+   
+	```java
+	@Qualifier
+	@Target(TYPE)
+	@Retention(RUNTIME)
+	public @interface FacesConfig {
+
+		public static enum Version {
+
+			/**
+			 * <p class="changed_added_2_3">This value indicates CDI should be used
+			 * for EL resolution as well as enabling JSF CDI injection, as specified
+			 * in Section 5.6.3 "CDI for EL Resolution" and Section 5.9 "CDI Integration".</p>
+			 */
+			JSF_2_3
+
+		}
+
+		/**
+		 * <p class="changed_added_2_3">The value of this attribute indicates that
+		 * features corresponding to this version must be enabled for this application.</p>
+		 * @return the spec version for which the features must be enabled.
+		 */
+		@Nonbinding Version version() default Version.JSF_2_3;
+
+	}
+	```
 
 Done.
 
-Another question still confused me and other developers, as the codes shown above, we use *all* bean-discovery-mode in the *beans.xml*. If we used *annotated* here, we have to add `@FacesConfig` to every CDI backing beans.  
+[Another issue about JSF 2.3 still confused me and other developers](https://github.com/javaserverfaces/mojarra/issues/4264), as the codes shown above, we use *all* bean-discovery-mode in the *beans.xml*. If we switch to *annotated* here, we have to add `@FacesConfig` to every CDI backing beans, it is unreasonable.  
 
+Create a simple sample to verify if it works.
+
+Firstly create a simple backing bean to say hello to JSF.
+
+```java
+@Named
+@RequestScoped
+public class HelloBean {
+
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void sayHi() {
+        this.message = this.message+ " received at " + LocalDateTime.now();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + Objects.hashCode(this.message);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final HelloBean other = (HelloBean) obj;
+        if (!Objects.equals(this.message, other.message)) {
+            return false;
+        }
+        return true;
+    }
+
+}
+```
+
+And template will accept user input and show the message.
+
+```xml
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head/>
+
+    <h:messages />
+
+    <h:body>
+        <p>
+            Hello JSF 2.3 with CDI activation
+        </p>
+
+        <form jsf:id="form">
+            <p>
+                <strong>Welcome to JSF 2.3 world: </strong> 
+                <div>#{helloBean.message}</div>
+            </p>
+            <p>
+                <strong>Message: </strong> 
+                <div><input type="text" jsf:id="message" jsf:value="#{helloBean.message}"></input></div>
+            </p>
+            <p>
+                <input type="submit" value="Say Hi to JSF" jsf:action="#{helloBean.sayHi()}" />
+            </p>
+        </form>
+
+    </h:body>
+
+</html>
+```
+
+Grab the [source codes](https://github.com/hantsy/ee8-sandbox/tree/master/jsf-cdi-activation) from my github account.
