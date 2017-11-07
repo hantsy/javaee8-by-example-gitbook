@@ -9,3 +9,5 @@
 * [Bean Validation 2.0](bv.md)
 * [JAXRS 2.1](jaxrs.md)
 * [Java EE Security API 1.0](security.md)
+* [MVC 1.0](mvc.md)
+* [References](ref.md)
