@@ -10,6 +10,6 @@ Compare to the previous 2.2, more effort focus on aligning with CDI specificatio
 * [Websocket support](TODO)
 * [UIData improvements](TODO)
 * [Class level bean validation with f:valdiateWholeBean](TODO)
-* [Inject support in Converter, Validator and Behavor](TODO)
+* [Inject support in Converter, Validator and Behavor](jsf-converter.md)
 * [CDI alginment](TODO)
 * [EL: more implict objects](TODO)
