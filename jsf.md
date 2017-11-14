@@ -8,6 +8,7 @@ Compare to the previous 2.2, more effort focus on aligning with CDI specificatio
 * [Run JSF 2.3 applications in JSF 2.2 compatible mode](jsf-compatible-mode.md)
 * [Java 8 DateTime support](jsf-datetime.md)
 * [New PostRenderViewEvent](jsf-postrenderviewevent.md)
+* [CDI compatible @ManagedProperty](jsf-managedproperty.md)
 * [Websocket support](TODO)
 * [UIData improvements](TODO)
 * [Class level bean validation with f:valdiateWholeBean](TODO)
