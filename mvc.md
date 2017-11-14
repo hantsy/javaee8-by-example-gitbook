@@ -8,12 +8,12 @@ In the [Spring4 Sandbox](https://github.com/hantsy/spring4-sandbox/), I provided
 
 In order to introduce the features of MVC 1.0, I will try to port this sample and use Java EE 8 MVC to reimplement it.
 
-* [Getting started with MVC](mvc-getting-start)
-* [Handling form submission](mvc-handle-form)
-* [Exception handling and form validation](mvc-validation)
-* [Processing PUT and DELETE methods](mvc-hidden-method)
-* [Page navigation](mvc-page-nav)
-* [MVC and CDI](mvc-cdi)
-* [Security](mvc-security)
-* [Bean parameter conversion](mvc-bean-conversion)
-* [View engine](mvc-view-engine)
+* [Getting started with MVC](mvc-getting-start.md)
+* [Handling form submission](mvc-handle-form.md)
+* [Exception handling and form validation](mvc-validation.md)
+* [Processing PUT and DELETE methods](mvc-hidden-method.md)
+* [Page navigation](mvc-page-nav.md)
+* [MVC and CDI](mvc-cdi.md)
+* [Security](mvc-security.md)
+* [Bean parameter conversion](mvc-bean-conversion.md)
+* [View engine](mvc-view-engine.md)
