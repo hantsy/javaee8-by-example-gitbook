@@ -6,12 +6,12 @@ Compare to the previous 2.2, more effort focus on aligning with CDI specificatio
 
 * [Activating CDI in JSF 2.3](jsf-activation.md)
 * [Run JSF 2.3 applications in JSF 2.2 compatible mode](jsf-compatible-mode.md)
+* [CDI alignment](jsf-cdi.md)
 * [Java 8 DateTime support](jsf-datetime.md)
-* [New PostRenderViewEvent](jsf-postrenderviewevent.md)
+* [New ComponentSystem Event:PostRenderViewEvent](jsf-postrenderviewevent.md)
 * [CDI compatible @ManagedProperty](jsf-managedproperty.md)
-* [Websocket support](TODO)
-* [UIData improvements](TODO)
-* [Class level bean validation with f:valdiateWholeBean](TODO)
+* [Websocket support](jsf-websocket.md)
+* [UIData improvements](jsf-uidata.md)
+* [Class level bean validation with f:valdiateWholeBean](jsf-validatewholebean.md)
 * [Inject support in Converter, Validator and Behavor](jsf-converter.md)
-* [CDI alginment](TODO)
-* [EL: more implict objects](TODO)
+
