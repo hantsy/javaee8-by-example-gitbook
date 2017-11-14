@@ -35,9 +35,9 @@ Map<String, Object> viewMap;
 
 And all of these can be resolved via EL in facelets template.
 
-There is a table listed all supported facilites in Arjan Tijms's blog entry, [What's new in JSF 2.3? ](http://arjan-tijms.omnifaces.org/p/jsf-23.html), a must-read article when upgrading to JSF 2.3.
+There is a table listed all supported facilites in Arjan Tijms's blog entry, [What's new in JSF 2.3? ](http://arjan-tijms.omnifaces.org/p/jsf-23.html).
 
-Artefact |	EL name |	Qualifier |	Type
+Artifact |	EL name |	Qualifier |	Type
 ---|---|---|---
 Application 	|#{application} |	- 	|java.lang.Object (javax.servlet.ServletContext)
 ApplicationMap |	#{applicationScope} 	|@ApplicationMap 	|java.util.Map<String, Object>
