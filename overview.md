@@ -22,7 +22,7 @@ Java EE 8 should be the last version released by Oracle(and Sun).
 
 Like me, some developers are a little disappointed about Java EE 8(JSR 366) , even complain it comes a little late. But no doubt there are still lots of new features and improvements which are valuable to update ourselves.
 
-There tow new specifications were introduced in Java EE 8.
+There tow new specifications were newly introduced in Java EE 8.
 
 * JSR 375 – Java EE Security API 1.0
 * JSR 367 – The Java API for JSON Binding (JSON-B) 1.0
@@ -42,11 +42,32 @@ Some specifications have been updated to align with Java 8 and CDI or involved a
 
 The other specifications such as JMS, Batch have no updates in this version.
 
-Unfortunately, MVC(JSR 371) is vetoed in the final stage, but it is still existed as a community based specification. And JCache(JSR 107) which had missed the last train of Java EE 7, and also lost its attractiveness in Java EE 8.
-  
-## Example codes (WIP)
+Unfortunately, some proposed specfications are not included in Java EE 8, including:
 
-Please see [Wiki pages](https://github.com/hantsy/ee8-sandbox/wiki) for more details.
+* JSR 371 - MVC is vetoed in the final stage, but it is still existed as a community based specification. 
+* JSR 107 - JCache had missed the last train of Java EE 7, and also lost its attractiveness in Java EE 8.
+  
+## Example codes 
+
+The source codes of this book is available on [https://github.com/hantsy/ee8-sandbox](https://github.com/hantsy/ee8-sandbox).
+
+Clone it into your local disk.
+
+	git clone https://github.com/hantsy/ee8-sandbox
+	
+I assume you have installed the following software, including:
+
+* The latest Oracle Java 8, http://java.oracle.com
+* NetBeans IDE, NetBeans 9 nightly is highly recommended, http://www.netbeans.org (Currently it is being migrated to Apache, http://netbeans.apache.org)
+* Glassfish v5, http://github.com/glassfish
+
+Starts up NetBeans IDE, and open the root project. Maven projects are recognised by NetBeans IDE automaticially.
+	
+![nb](nb-javaee8.png)	
+
+Click any subproject node under **Modules** to open the certain project, and run it on Glassfish application server by click **Run** in the context menu.
+
+
 
 
 
