@@ -268,6 +268,8 @@ To demonstrate different cases, we defined a series of `PushContext` in the back
 
 Run the application on Glassfish, open your browser and navigate to [http://localhost:8080/jsf-websocket/scope.faces](http://localhost:8080/jsf-websocket/scope.faces).
 
+![jsf websocket and scope](jsf-websocket-scope.png)
+
 ## Event 
 
 JSF 2.3 provides a `WebsocketEvent`, in the backend codes, you can observe it when it is opened (via CDI `@Opened` qualifier) or closed(via CDI `@Closed` qualifier).
@@ -521,3 +523,23 @@ Run this application on Glassfish, open your browser and navigate to [http://loc
 
 ![jsf websocket and ajax](jsf-websocket-ajax.png)
 
+## Security 
+
+In JSF internally, JSF expose a default endpoint(/javax.faces.push/channelName) to serve the websocket connections. You can protect it as other web resources.
+
+```xml
+<security-constraint>
+  <web-resource-collection>
+	  <web-resource-name>Restrict access to role USER.</web-resource-name>
+	  <url-pattern>/user/*</url-pattern>
+	  <url-pattern>/javax.faces.push/foo</url-pattern>
+  </web-resource-collection>
+  <auth-constraint>
+	  <role-name>USER</role-name>
+  </auth-constraint>
+</security-constraint>
+```
+
+## Source codes
+
+Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my github account, and have a try.
