@@ -28,6 +28,13 @@
 * [What's new in JSF 2.3? ](http://arjan-tijms.omnifaces.org/p/jsf-23.html), a must-read article when upgrading to JSF 2.3.
 * [Migrate your @ManagedProperty annotations](http://www.manorrock.com/blog/2013/11/01/jsf_tip_31_migrate_your_managedproperty_annotations.html)
 
+## JPA 2.2
+
+* [What's new in JPA 2.2](https://www.thoughts-on-java.org/whats-new-in-jpa-2-2/)
+* [JPA 2.2’s new getResultStream() method and how you should NOT use it](https://www.thoughts-on-java.org/jpa-2-2s-new-stream-method-and-how-you-should-not-use-it/)
+* [What’s new in JPA 2.2 – Stream the result of a Query execution](https://vladmihalcea.com/2017/07/04/whats-new-in-jpa-2-2-stream-the-result-of-a-query-execution)
+* [What’s new in JPA 2.2 – Java 8 Date and Time Types](https://vladmihalcea.com/2017/06/26/whats-new-in-jpa-2-2-java-8-date-and-time-types/)
+
 ## JAX-RS 2.1
 
 * [Jersey Client Dependencies for JAX-RS 2.1](https://dzone.com/articles/jersey-client-dependencies-for-jax-rs-21)
