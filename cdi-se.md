@@ -27,9 +27,9 @@ try (SeContainer container = initializer.initialize()) {
 }
 ```
 
-This is a `try-resources` statement, `SeContainer` is a `AutoClosable` and can be closed automaticially.
+There is a `try-resources` statement, `SeContainer` is a `AutoClosable` and can be closed automaticially at the end.
 
-To bootstrap CDI, you have to add the following dependencies in project.
+To bootstrap CDI container for Java SE, you have to add the following dependencies in project.
 
 ```xml
 <dependency>
@@ -39,7 +39,7 @@ To bootstrap CDI, you have to add the following dependencies in project.
 </dependency>
 ```
 
-Weld also provides some simple APIs to bootstrap CDI container.
+Weld also provides some simple APIs to bootstrap a CDI container.
 
 ```java
 Weld weld = new Weld();
@@ -50,7 +50,7 @@ try (WeldContainer container = weld.initialize()) {
 }
 ```
 
-You can utilize Weld APIs to modify beans.
+You can utilize Weld APIs to modify beans in the CDI container lifecycle.
 
 ```java
 @Test(expected = UnsatisfiedResolutionException.class)
@@ -70,7 +70,7 @@ public void bootWeldSeContainer() {
 }
 ```
 
-In the above codes, it vetoes `Greeter` bean, the bean select operations will cause an exception `UnsatisfiedResolutionException`.
+In the above codes, it vetoes `Greeter` bean in `processAnnotatedType` phase, the later bean select operation will cause an exception `UnsatisfiedResolutionException` thrown.
 
 
 Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my github account, and have a try.
