@@ -22,6 +22,9 @@
 ## CDI 2.0
 
 * [Tour around Weld 3](http://weld.cdi-spec.org/news/2017/05/19/tour-around-weld-3/)
+* [What’s new in CDI 2.0](http://docs.jboss.org/cdi/learn/cdi_2/slides.html)
+* [A look on CDI 2.0 EDR1](https://paluch.biz/blog/144-a-look-on-cdi-2-0-edr1.html)
+* [mp911de/cdi-2.0 @ Github](https://github.com/mp911de/cdi-2.0)
 
 ## JSF 2.3
 

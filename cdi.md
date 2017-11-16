@@ -2,8 +2,8 @@
 
 CDI reorganizes the specifications, and introduce Java SE platform support. 
 
-* [Java SE support](TODO)
-* [Event Priority](TODO)
-* [Async Events](TODO)
-* [Register Beans dynamicially](TODO)
-* [Configurators and Intercept Producers](TODO)
+* [Java SE support](cdi-se.md)
+* [Event Priority](cdi-priority.md)
+* [Async Events](cdi-async.md)
+* [Register Beans dynamicially](cdi-dynamic-beans.md)
+* [Configurators and Intercept Producers](cdi-intercept-producers.md)

@@ -2,7 +2,7 @@
 
 JPA 2.2 added more alignments with Java 8, such as Java 8 DateTime APIs as well as CDI improvments. 
 
-Changed against Java 8 language improvements, a few annotaions in JPA supports `@Repeatable`.
+Changed against Java 8 language improvements, a few annotations in JPA supports `@Repeatable`.
 
 * AssociationOverride
 * AttributeOverride
@@ -19,8 +19,10 @@ Changed against Java 8 language improvements, a few annotaions in JPA supports `
 * SecondaryTable
 * SqlResultSetMapping
 
-You do not need a collection concept annotaion to wrap these.
+You do not need a collection concept annotation to wrap these.
 
-* [Java 8 Datetime](jpa-datetime.md)
-* [Stream Result](jpa-streamresult.md)
-* [CDI Alignments](jpa-cdi.md)
+Other updates including:
+
+* [Java 8 Datetime support](jpa-datetime.md)
+* [Return Stream based result from Query](jpa-streamresult.md)
+* [More CDI Alignments](jpa-cdi.md)
