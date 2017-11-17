@@ -1,4 +1,4 @@
-#Getting started with Java EE 8 MVC
+# Getting started with Java EE 8 MVC
 
 MVC is a new specification introduced in the upcoming Java EE 8. 
 
@@ -54,26 +54,30 @@ If you are using NetBeans IDE, it is easy to create a Maven based Java EE 7 web 
 
 It should include Java EE 7 web artifact as the dependency.
 
-	<dependency>
-		<groupId>javax</groupId>
-		<artifactId>javaee-web-api</artifactId>
-		<version>7.0</version>
-		<scope>provided</scope>
-	</dependency>	
+```xml
+<dependency>
+	<groupId>javax</groupId>
+	<artifactId>javaee-web-api</artifactId>
+	<version>8.0</version>
+	<scope>provided</scope>
+</dependency>	
+```
 	
 Add additional MVC api and the implemnetation dependencies.
 
-	<dependency>
-		<groupId>javax.mvc</groupId>
-		<artifactId>javax.mvc-api</artifactId>
-		<version>1.0-edr2</version>
-	</dependency>
-	<dependency>
-		<groupId>org.glassfish.ozark</groupId>
-		<artifactId>ozark</artifactId>
-		<version>1.0.0-m02</version>
-		<scope>runtime</scope>
-	</dependency>
+```xml
+<dependency>
+	<groupId>javax.mvc</groupId>
+	<artifactId>javax.mvc-api</artifactId>
+	<version>1.0-edr2</version>
+</dependency>
+<dependency>
+	<groupId>org.glassfish.ozark</groupId>
+	<artifactId>ozark</artifactId>
+	<version>1.0.0-m02</version>
+	<scope>runtime</scope>
+</dependency>
+```
 
 **ozark** is the default reference implemnetation of MVC 1.0 specificaiton, which will shipped with Glassfish 5. Currently it is still under active development, what we are using here may be changed in the future.
 
@@ -87,14 +91,16 @@ MVC does not reinvent the wheel, it reuses the effort of JAXRS specificaiton.
 
 Similar with activiating JAXRS application, You can declare a custom `Application` as our MVC application entry.
 
-	@ApplicationPath("mvc")
-	public class MvcConfig extends Application {
+```java
+@ApplicationPath("mvc")
+public class MvcConfig extends Application {
 
-		@Override
-		public Set<Class<?>> getClasses() {
-			return Collections.singleton(TaskController.class);
-		}
+	@Override
+	public Set<Class<?>> getClasses() {
+		return Collections.singleton(TaskController.class);
 	}
+}
+```	
 	
 `TaskController` is a controller, it acts as the **C** in **MVC** pattern.
 
@@ -102,28 +108,29 @@ Similar with activiating JAXRS application, You can declare a custom `Applicatio
 
 MVC uses a `@Controller` annotation to declare a JAXES resource as Controller.
 
+```java
+@Path("tasks")
+@Controller
+public class TaskController {
 
-	@Path("tasks")
-	@Controller
-	public class TaskController {
-	
-		@GET
-		@View("tasks.jspx")
-		public void allTasks() {
-			log.log(Level.INFO, "fetching all tasks");
+	@GET
+	@View("tasks.jspx")
+	public void allTasks() {
+		log.log(Level.INFO, "fetching all tasks");
 
-			List<Task> todotasks = taskRepository.findByStatus(Task.Status.TODO);
-			List<Task> doingtasks = taskRepository.findByStatus(Task.Status.DOING);
-			List<Task> donetasks = taskRepository.findByStatus(Task.Status.DONE);
+		List<Task> todotasks = taskRepository.findByStatus(Task.Status.TODO);
+		List<Task> doingtasks = taskRepository.findByStatus(Task.Status.DOING);
+		List<Task> donetasks = taskRepository.findByStatus(Task.Status.DONE);
 
-			log.log(Level.INFO, "got all tasks: todotasks@{0}, doingtasks@{1}, donetasks@{2}", new Object[]{todotasks.size(), doingtasks.size(), donetasks.size()});
+		log.log(Level.INFO, "got all tasks: todotasks@{0}, doingtasks@{1}, donetasks@{2}", new Object[]{todotasks.size(), doingtasks.size(), donetasks.size()});
 
-			models.put("todotasks", todotasks);
-			models.put("doingtasks", doingtasks);
-			models.put("donetasks", donetasks);
+		models.put("todotasks", todotasks);
+		models.put("doingtasks", doingtasks);
+		models.put("donetasks", donetasks);
 
-		}
 	}
+}
+```	
 
 `@View` annotation indicates the view(eg. JSP pages) a void method will return. 
 
@@ -135,52 +142,54 @@ MVC uses a `@Controller` annotation to declare a JAXES resource as Controller.
 
 Have a look at the `tasks.jspx` file, I just copied some code snippets here, please checkout the source codes for details.
 
-	<div class="col-md-4 col-xs-12">
-		<div class="panel panel-default">
-			<!-- Default panel contents -->
-			<div class="panel-heading">
-				<span class="glyphicon glyphicon-list-alt" aria-hidden="true"><jsp:text /></span>
-				TODO
-			</div>
-			<div class="panel-body">
-				<p>Tasks newly added in the backlog.</p>
-			</div>
-
-			<!-- List group -->
-			<c:if test="${not empty todotasks}">
-				<ul id="todotasks" class="list-group">
-					<c:forEach var="task" begin="0" items="${todotasks}">
-						<li class="list-group-item">
-							<h4>
-								<span>#${task.id} ${task.name}</span> <span class="pull-right">
-									<c:url var="taskUrl" value="tasks/${task.id}" /> <c:url
-										var="taskEditUrl" value="tasks/${task.id}/edit" /> <a
-										href="${taskUrl}"> <span class="glyphicon glyphicon-file"
-															 aria-hidden="true"><jsp:text /></span>
-									</a> <a href="${taskEditUrl}"> <span
-											class="glyphicon glyphicon-pencil" aria-hidden="true"><jsp:text /></span>
-									</a>
-								</span>
-							</h4>
-							<p>${task.description}</p>
-							<p>
-								<c:url var="markDoingUrl"
-									   value="/mvc/tasks/${task.id}/status" />
-							<form action="${markDoingUrl}" method="post">
-								<input type="hidden" name="_method" value="PUT"><jsp:text /></input>
-								<input type="hidden" name="status" value="DOING"><jsp:text /></input>
-								<button type="submit" class="btn btn-sm btn-primary">
-									<span class="glyphicon glyphicon-play" aria-hidden="true"><jsp:text /></span>
-									START
-								</button>
-							</form>
-							</p>
-						</li>
-					</c:forEach>
-				</ul>
-			</c:if>
+```xml
+<div class="col-md-4 col-xs-12">
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">
+			<span class="glyphicon glyphicon-list-alt" aria-hidden="true"><jsp:text /></span>
+			TODO
 		</div>
+		<div class="panel-body">
+			<p>Tasks newly added in the backlog.</p>
+		</div>
+
+		<!-- List group -->
+		<c:if test="${not empty todotasks}">
+			<ul id="todotasks" class="list-group">
+				<c:forEach var="task" begin="0" items="${todotasks}">
+					<li class="list-group-item">
+						<h4>
+							<span>#${task.id} ${task.name}</span> <span class="pull-right">
+								<c:url var="taskUrl" value="tasks/${task.id}" /> <c:url
+									var="taskEditUrl" value="tasks/${task.id}/edit" /> <a
+									href="${taskUrl}"> <span class="glyphicon glyphicon-file"
+														 aria-hidden="true"><jsp:text /></span>
+								</a> <a href="${taskEditUrl}"> <span
+										class="glyphicon glyphicon-pencil" aria-hidden="true"><jsp:text /></span>
+								</a>
+							</span>
+						</h4>
+						<p>${task.description}</p>
+						<p>
+							<c:url var="markDoingUrl"
+								   value="/mvc/tasks/${task.id}/status" />
+						<form action="${markDoingUrl}" method="post">
+							<input type="hidden" name="_method" value="PUT"><jsp:text /></input>
+							<input type="hidden" name="status" value="DOING"><jsp:text /></input>
+							<button type="submit" class="btn btn-sm btn-primary">
+								<span class="glyphicon glyphicon-play" aria-hidden="true"><jsp:text /></span>
+								START
+							</button>
+						</form>
+						</p>
+					</li>
+				</c:forEach>
+			</ul>
+		</c:if>
 	</div>
+</div>
+```	
 
 No surprise, just pure JSP files, I used the JSP xml form in this sample. 
 
