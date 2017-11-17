@@ -38,6 +38,17 @@
 * [What’s new in JPA 2.2 – Stream the result of a Query execution](https://vladmihalcea.com/2017/07/04/whats-new-in-jpa-2-2-stream-the-result-of-a-query-execution)
 * [What’s new in JPA 2.2 – Java 8 Date and Time Types](https://vladmihalcea.com/2017/06/26/whats-new-in-jpa-2-2-java-8-date-and-time-types/)
 
+## Bean Validation 2.0
+
+* [Bean Validation 2.0 ](https://dzone.com/articles/bean-validation-20)
+* [Bean Validation 2.0 - A new JSR is born!](http://beanvalidation.org/news/2016/07/15/bean-validation-2-0-is-coming/)
+* [And here comes Hibernate Validator 6.0 Final with Bean Validation 2.0 support](http://in.relation.to/2017/08/07/and-here-comes-hibernate-validator-60
+* [Validating Container Elements with Bean Validation 2.0](http://www.baeldung.com/bean-validation-container-elements)
+
+## JSON-P 1.1
+
+* [Public Review of JSON-P Specification 1.1 is Now Open](https://www.infoq.com/news/2017/03/json-processing-public-review)
+
 ## JAX-RS 2.1
 
 * [Jersey Client Dependencies for JAX-RS 2.1](https://dzone.com/articles/jersey-client-dependencies-for-jax-rs-21)
