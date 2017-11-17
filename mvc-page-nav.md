@@ -44,15 +44,19 @@ There are several approaches provided in MVC specification to navigate the view 
 2. Return a `Viewable` object to a controller method.
 3. Return a `Response` entity which body content includes the view path.
 
-		public Response someAction(){
-			 return Response.ok("redirect:tasks").build();
-		}
+	```java
+	public Response someAction(){
+		 return Response.ok("redirect:tasks").build();
+	}
+	```	
 		
 4. Return a `String` type value directly.	
 
-		public String someAction(){
-			 return "redirect:tasks";
-		}	
+	```java
+	public String someAction(){
+		 return "redirect:tasks";
+	}	
+	```	
 
 The 1 and 2 are new added to the MVC specification, and the 3rd is reusing the existing JAXRS specification.		
 		
