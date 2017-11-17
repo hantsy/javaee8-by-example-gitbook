@@ -120,3 +120,4 @@ Info:   observes event with @Priority(value = 1):Message{content=hello CDI event
 Info:   observes event  @Priority(value = 2):Message{content=hello CDI event}
 ```
 
+Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my github account, and have a try.
