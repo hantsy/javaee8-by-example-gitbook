@@ -1,4 +1,4 @@
-#Handling form submission
+# Handling form submission
 
 In the tranditional MVC applications, the mostly-used HTML methods should **GET** and **POST**. 
 
@@ -13,45 +13,49 @@ In order to create a new task, you should follow the flow.
 
 Firstly display the task creating page.
 
-    @GET
-    @Path("new")
-    public Viewable add() {
-        log.log(Level.INFO, "add new task");
+```java
+@GET
+@Path("new")
+public Viewable add() {
+	log.log(Level.INFO, "add new task");
 
-        return new Viewable("add.jspx");
-    }
+	return new Viewable("add.jspx");
+}
+```	
 
 `Viewable` is another approach to indicate a view path, I have motioned the `@View` annotation in the first post.
 
 The *add.jspx* page code snippets.
 
-	<div class="row">
-		<div class="col-md-12">
-			<c:url var="formActionUrl" value="/mvc/tasks"/>
-			<form id="form" name="form" role="form" class="form" action="${formActionUrl}" method="post">
-				<div
-					class="form-group">
-					<label class="control-label" for="name">Task Name:</label>
-					<input id="name" name="name" type="text" class="form-control"/>
-					<div class="help-block">
-						<jsp:text/>
-					</div>
+```xml
+<div class="row">
+	<div class="col-md-12">
+		<c:url var="formActionUrl" value="/mvc/tasks"/>
+		<form id="form" name="form" role="form" class="form" action="${formActionUrl}" method="post">
+			<div
+				class="form-group">
+				<label class="control-label" for="name">Task Name:</label>
+				<input id="name" name="name" type="text" class="form-control"/>
+				<div class="help-block">
+					<jsp:text/>
 				</div>
-				 <div
-					class="form-group">
-					<label class="control-label" for="description">Task Description:</label>
-					<textarea id="description" name="description" class="form-control" rows="8"><jsp:text/></textarea>
-					<div class="help-block">
-						<jsp:text/>
-					</div>
+			</div>
+			 <div
+				class="form-group">
+				<label class="control-label" for="description">Task Description:</label>
+				<textarea id="description" name="description" class="form-control" rows="8"><jsp:text/></textarea>
+				<div class="help-block">
+					<jsp:text/>
 				</div>
+			</div>
 
-				<div class="form-group">
-					<button id="submitTask" type="submit" class="btn btn-lg btn-primary">Add Task</button>
-				</div>
-			</form>
-		</div>
+			<div class="form-group">
+				<button id="submitTask" type="submit" class="btn btn-lg btn-primary">Add Task</button>
+			</div>
+		</form>
 	</div>
+</div>
+```	
 
 Unlike other MVC frameworks, such as Spring MVC, MVC 1.0 does not provides specific taglib for form field wrapping. Most of the codes are pure HTML codes and some addtional standard JSTL taglib in JSP specification.
 
@@ -61,53 +65,57 @@ When the **Add Task** button is clicked, the form is submitted via POST method t
 
 Let's have a look at the controller to process the form submission.
 
-    @POST
-    public Response save(@Valid @BeanParam TaskForm form) {
-        log.log(Level.INFO, "saving new task @{0}", form);
+```java
+@POST
+public Response save(@Valid @BeanParam TaskForm form) {
+	log.log(Level.INFO, "saving new task @{0}", form);
 
-        if (validationResult.isFailed()) {
-            AlertMessage alert = AlertMessage.danger("Validation voilations!");
-            validationResult.getAllViolations()
-                    .stream()
-                    .forEach((ConstraintViolation t) -> {
-                        alert.addError(t.getPropertyPath().toString(), "", t.getMessage());
-                    });
-            models.put("errors", alert);
-            return Response.status(BAD_REQUEST).entity("add.jsp").build();
-        }
+	if (validationResult.isFailed()) {
+		AlertMessage alert = AlertMessage.danger("Validation voilations!");
+		validationResult.getAllViolations()
+				.stream()
+				.forEach((ConstraintViolation t) -> {
+					alert.addError(t.getPropertyPath().toString(), "", t.getMessage());
+				});
+		models.put("errors", alert);
+		return Response.status(BAD_REQUEST).entity("add.jsp").build();
+	}
 
-        Task task = new Task();
-        task.setName(form.getName());
-        task.setDescription(form.getDescription());
+	Task task = new Task();
+	task.setName(form.getName());
+	task.setDescription(form.getDescription());
 
-        taskRepository.save(task);
+	taskRepository.save(task);
 
-        flashMessage.notify(Type.success, "Task was created successfully!");
+	flashMessage.notify(Type.success, "Task was created successfully!");
 
-        return Response.ok("redirect:tasks").build();
-    }
+	return Response.ok("redirect:tasks").build();
+}
+```	
 
 You could have notice there is `@BeanParam` annotation with `TaskForm` bean. 
 
 Let's dig in the `TaskForm` code.
 
-	@RequestScoped
-	public class TaskForm implements Serializable {
+```java
+@RequestScoped
+public class TaskForm implements Serializable {
 
-		private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-		@NotNull
-		@FormParam("name")
-		private String name;
+	@NotNull
+	@FormParam("name")
+	private String name;
 
-		@NotNull
-		@FormParam("description")
-		private String description;
-		
-		//setters and getters are omitted.
-		//equals and hashcode methods are omitted.
-		
-	}	
+	@NotNull
+	@FormParam("description")
+	private String description;
+	
+	//setters and getters are omitted.
+	//equals and hashcode methods are omitted.
+	
+}	
+```	
 
 In the `TaskForm`, there are two fields defined, `name` and `description`, and they are annotated with a `@FormParam` annotation, it means the fields in the input form will be bound to these fields by name.
 
