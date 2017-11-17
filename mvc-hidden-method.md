@@ -12,107 +12,113 @@ If you have used Spring MVC before and I think you could know there is a `Hidden
 
 1. Create a Filter to convert the request method to the target HTTP method.
 
-        @WebFilter(filterName = "HiddenHttpMethodFilter", urlPatterns = {"/*"}, dispatcherTypes = {DispatcherType.REQUEST})
-        public class HiddenHttpMethodFilter implements Filter {
+	```java
+	@WebFilter(filterName = "HiddenHttpMethodFilter", urlPatterns = {"/*"}, dispatcherTypes = {DispatcherType.REQUEST})
+	public class HiddenHttpMethodFilter implements Filter {
 
-            @Inject
-            Logger log;
+		@Inject
+		Logger log;
 
-            /**
-            * Default method parameter: {@code _method}
-            */
-            public static final String DEFAULT_METHOD_PARAM = "_method";
+		/**
+		* Default method parameter: {@code _method}
+		*/
+		public static final String DEFAULT_METHOD_PARAM = "_method";
 
-            private String methodParam = DEFAULT_METHOD_PARAM;
+		private String methodParam = DEFAULT_METHOD_PARAM;
 
-            /**
-            * Set the parameter name to look for HTTP methods.
-            *
-            * @see #DEFAULT_METHOD_PARAM
-            */
-            public void setMethodParam(String methodParam) {
-                this.methodParam = methodParam;
-            }
+		/**
+		* Set the parameter name to look for HTTP methods.
+		*
+		* @see #DEFAULT_METHOD_PARAM
+		*/
+		public void setMethodParam(String methodParam) {
+			this.methodParam = methodParam;
+		}
 
-            @Override
-            public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain)
-                    throws ServletException, IOException {
-                log.log(Level.INFO, "entering HttpHiddenFilter...");
-                HttpServletRequest request = (HttpServletRequest) req;
-                HttpServletResponse response = (HttpServletResponse) res;
+		@Override
+		public void doFilter(ServletRequest req, ServletResponse res, FilterChain filterChain)
+				throws ServletException, IOException {
+			log.log(Level.INFO, "entering HttpHiddenFilter...");
+			HttpServletRequest request = (HttpServletRequest) req;
+			HttpServletResponse response = (HttpServletResponse) res;
 
-                String paramValue = request.getParameter(this.methodParam);
-                log.log(Level.INFO, "paramValue @" + paramValue);
-                log.log(Level.INFO, "request method @" + request.getMethod());
+			String paramValue = request.getParameter(this.methodParam);
+			log.log(Level.INFO, "paramValue @" + paramValue);
+			log.log(Level.INFO, "request method @" + request.getMethod());
 
-                if ("POST".equals(request.getMethod()) && paramValue != null && paramValue.trim().length() > 0) {
-                    String method = paramValue.toUpperCase(Locale.ENGLISH);
-                    HttpServletRequest wrapper = new HttpMethodRequestWrapper(request, method);
-                    filterChain.doFilter(wrapper, response);
-                } else {
-                    filterChain.doFilter(request, response);
-                }
-            }
+			if ("POST".equals(request.getMethod()) && paramValue != null && paramValue.trim().length() > 0) {
+				String method = paramValue.toUpperCase(Locale.ENGLISH);
+				HttpServletRequest wrapper = new HttpMethodRequestWrapper(request, method);
+				filterChain.doFilter(wrapper, response);
+			} else {
+				filterChain.doFilter(request, response);
+			}
+		}
 
-            @Override
-            public void init(FilterConfig filterConfig) throws ServletException {
+		@Override
+		public void init(FilterConfig filterConfig) throws ServletException {
 
-            }
+		}
 
-            @Override
-            public void destroy() {
+		@Override
+		public void destroy() {
 
-            }
+		}
 
-            /**
-            * Simple {@link HttpServletRequest} wrapper that returns the supplied
-            * method for {@link HttpServletRequest#getMethod()}.
-            */
-            private static class HttpMethodRequestWrapper extends HttpServletRequestWrapper {
+		/**
+		* Simple {@link HttpServletRequest} wrapper that returns the supplied
+		* method for {@link HttpServletRequest#getMethod()}.
+		*/
+		private static class HttpMethodRequestWrapper extends HttpServletRequestWrapper {
 
-                private final String method;
+			private final String method;
 
-                public HttpMethodRequestWrapper(HttpServletRequest request, String method) {
-                    super(request);
-                    this.method = method;
-                }
+			public HttpMethodRequestWrapper(HttpServletRequest request, String method) {
+				super(request);
+				this.method = method;
+			}
 
-                @Override
-                public String getMethod() {
-                    return this.method;
-                }
-            }
+			@Override
+			public String getMethod() {
+				return this.method;
+			}
+		}
 
-        }
+	}
+	```	
         
 2. Add a hidden field named `_method` in the form,  which value is the target HTTP method.
 
-		<form action="${markDoingUrl}" method="post">
-			<input type="hidden" name="_method" value="PUT"><jsp:text /></input>
-			<input type="hidden" name="status" value="DOING"><jsp:text /></input>
-			<button type="submit" class="btn btn-sm btn-primary">
-				<span class="glyphicon glyphicon-play" aria-hidden="true"><jsp:text /></span>
-				START
-			</button>
-		</form>
+	```xml
+	<form action="${markDoingUrl}" method="post">
+		<input type="hidden" name="_method" value="PUT"><jsp:text /></input>
+		<input type="hidden" name="status" value="DOING"><jsp:text /></input>
+		<button type="submit" class="btn btn-sm btn-primary">
+			<span class="glyphicon glyphicon-play" aria-hidden="true"><jsp:text /></span>
+			START
+		</button>
+	</form>
+	```	
 
 3. The `@PUT` method in the `TaskController`.
 
-        @PUT
-        @Path("{id}/status")
-        public Response updateStatus(@PathParam(value = "id") Long id, @NotNull @FormParam(value = "status") String status) {
-            log.log(Level.INFO, "updating status of the existed task@id:{0}, status:{1}", new Object[]{id, status});
+	```java
+	@PUT
+	@Path("{id}/status")
+	public Response updateStatus(@PathParam(value = "id") Long id, @NotNull @FormParam(value = "status") String status) {
+		log.log(Level.INFO, "updating status of the existed task@id:{0}, status:{1}", new Object[]{id, status});
 
-            Task task = taskRepository.findById(id);
+		Task task = taskRepository.findById(id);
 
-            task.setStatus(Task.Status.valueOf(status));
+		task.setStatus(Task.Status.valueOf(status));
 
-            taskRepository.update(task);
+		taskRepository.update(task);
 
-            flashMessage.notify(Type.info, "Task status was updated successfully!");
+		flashMessage.notify(Type.info, "Task status was updated successfully!");
 
-            return Response.ok("redirect:tasks").build();
-        }
+		return Response.ok("redirect:tasks").build();
+	}
+	```	
 
 ## Source codes
 
