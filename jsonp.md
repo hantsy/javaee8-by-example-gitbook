@@ -109,6 +109,6 @@ List<Person> person = JsonbBuilder.create().fromJson(result.toString(), type);
 assertEquals("Duke Oracle", person.get(0).getName());
 ```		
 
-They are very useful to patch the existing entity when used Http Patch method in JAX-RS, we will demonstrate this later in JAX-RS.
+They are very useful to patch the existing entity when add Http Patch method support in RESTful APIs, we will demonstrate this later in JAX-RS.
 
-
+Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my github account, and have a try.
