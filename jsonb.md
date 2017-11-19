@@ -20,14 +20,14 @@ String json = jsonMapper.toJson(duke);
 
 LOG.log(Level.INFO, "converted json result: {0}", json);
 ```		
-You can read json value via `JsonPath`.
+`JsonPath` allow you read the values of JSON nodes.
 
 ```java
 String name = JsonPath.parse(json).read("$.name");
 assertEquals("Duke", name);
 ```
 
-`JsonPath` provides configuration APIs to configure the parse provider, eg. using `Gson` as backend json provider.
+`JsonPath.using()` method accepts cusotm configuration APIs to configure the json provider, eg. using `Gson` instead of the default json provider.
 
 ```java
 Configuration config = Configuration.defaultConfiguration()
@@ -60,3 +60,14 @@ List<Person> persons = jsonMapper.fromJson(JsonbTest.class.getResourceAsStream("
 
 assertTrue(persons.size() == 2);
 ```
+
+## JSON-B annotations
+
+JSON-B provides a series of annotations to adjust the serialization and deserialization for an object, including `@JsonbProperty`, `@JsonbPropertyOrder`, `@JsonbTransient` etc.
+
+```java
+@JsonbProperty 
+private String name;
+```
+
+Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my github account, and have a try.
