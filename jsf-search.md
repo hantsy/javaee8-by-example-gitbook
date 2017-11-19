@@ -2,7 +2,7 @@
 
 In before JSF versions, it uses an absolute hierarchical ID, or a relative local ID to locate a component, it is useful to rerender a component in an ajax request. For more flexible to query the component, JSF added `@all`, `@form`, `@this` expression to search the component to be rerendered.
 
-JSF 2.3 extends these expression by introducing new **Component search expression framework**, which adds some useful and powerful keywords, and also provides APIs to define your won keywords in the expression.
+JSF 2.3 extends these expression by introducing new **Component search expression framework**, which adds some useful and powerful keywords, and also provides APIs to define your own keywords in the expression.
 
 The following table lists all new keywords added in JSF 2.3(copied from [Arjan Tijms' blog entry about new features in JSF 2.3](http://arjan-tijms.omnifaces.org/p/jsf-23.html).
 
@@ -17,7 +17,7 @@ Keyword |	Description
 @previous |	The previous component to the base component
 @root |	The UIViewRoot
 
-Let's create a custom keyword.
+Let's try to create a custom keyword to find the *grant parent* node of the certain component in the component tree.
 
 Create a new `SearchKeywordResolver`.
 
@@ -56,7 +56,8 @@ public class WebInit implements ServletContextListener {
     }
 }
 ```
-We can get the component id at runtime.
+
+A simple facelets template.
 
 ```xml
 <h:panelGroup id="panelgroup">
@@ -67,6 +68,8 @@ We can get the component id at runtime.
 	</h:form>
 </h:panelGroup>
 ```
+
+Get the *grandParent* id of the certain component at runtime.
 
 ```java
 public void foo() {
