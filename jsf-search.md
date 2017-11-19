@@ -4,7 +4,7 @@ In before JSF versions, it uses an absolute hierarchical ID, or a relative local
 
 JSF 2.3 extends these expression by introducing new **Component search expression framework**, which adds some useful and powerful keywords, and also provides APIs to define your own keywords in the expression.
 
-The following table lists all new keywords added in JSF 2.3(copied from [Arjan Tijms' blog entry about new features in JSF 2.3](http://arjan-tijms.omnifaces.org/p/jsf-23.html).
+The following table lists all new keywords added in JSF 2.3, it is just a copy from [Arjan Tijms' blog entry: What's new in JSF 2.3](http://arjan-tijms.omnifaces.org/p/jsf-23.html).
 
 Keyword |	Description
 ---|---
