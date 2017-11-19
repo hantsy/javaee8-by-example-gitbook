@@ -40,7 +40,7 @@ public class AsyncClient {
 }
 ```
 
-JAXRS 2.1 embraces the concept, added a `rx()` method switch to Reactive APIs and handle the response in stream.
+JAXRS 2.1 embraces the **Reactive** concept, added a `rx()` method switch to Reactive APIs and handle the response in stream.
 
 By default, it supports Java 8 `CompletionStage`.
 
