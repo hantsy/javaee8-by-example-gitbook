@@ -49,6 +49,7 @@ Unfortunately, some proposed specfications are not included in Java EE 8, includ
   
 ## Example codes 
 
+You can get the source codes from my github account, and install JDK 8, NetBeans 8.2 or 9, Glassfish v5, and play the sample codes locally.
 
 ### Get source codes
 
@@ -59,28 +60,31 @@ Clone it into your local disk.
 	git clone https://github.com/hantsy/ee8-sandbox
 	
 
-### Install JDK 8 
+### Install Oracle JDK 8 
 
 1. Get the latest Oracle Java 8, http://java.oracle.com
 2. Follow [the offical installation guide](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install it into your local system.
 3. Verify the installation, open terminal and type `java --version`, it should the java version info.
 
-### Install NetBeans
+### Install NetBeans IDE
 
-NetBeans is being migrated to Apache Foundation as [an incubating project](http://netbeans.apache.org), and NetBeans 9 is currently in development.
+Currently no IDEs have built-in Java EE 8 support. 
+
+NetBeans is being migrated to Apache Foundation as [an incubating project](http://netbeans.apache.org), and NetBeans 9 is still under active development(but NetBeans 9 targets Java 9, not Java EE 8).
 
 1. Download NetBeans from http://www.netbeans.org,  NetBeans 9 nightly is highly recommended.
 2. Install it into your local system.
 
-### Glassfish v5
+### Install Glassfish v5
 
-1. Download Glassfish v5, http://github.com/glassfish
+1. Download Glassfish v5 from http://github.com/glassfish
 2. Exract the archive into your local disc.
 3. Open NetBeans IDE, click **Service** tab.
 4. Right click the **Server** ndoe, and click **Add Server** and follow the wizard to add Glassfish v5 into IDE.
 
 
 ### Import sample codes
+
 Starts up NetBeans IDE, and open the root project. Maven projects are recognised by NetBeans IDE automaticially.
 	
 ![nb](nb-javaee8.png)	
