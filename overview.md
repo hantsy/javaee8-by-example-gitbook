@@ -68,8 +68,9 @@ Starts up NetBeans IDE, and open the root project. Maven projects are recognised
 Click any subproject node under **Modules** to open the certain project, and run it on Glassfish application server by click **Run** in the context menu.
 
 
+## References
 
-
+I create a repository to collect all useful Java EE 8 resources, check [Awesome Java EE 8](https://github.com/hantsy/awesome-javaee8).
 
 
 
