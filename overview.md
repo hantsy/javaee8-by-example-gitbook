@@ -49,18 +49,38 @@ Unfortunately, some proposed specfications are not included in Java EE 8, includ
   
 ## Example codes 
 
+
+### Get source codes
+
 The source codes of this book is available on [https://github.com/hantsy/ee8-sandbox](https://github.com/hantsy/ee8-sandbox).
 
 Clone it into your local disk.
 
 	git clone https://github.com/hantsy/ee8-sandbox
 	
-I assume you have installed the following software, including:
 
-* The latest Oracle Java 8, http://java.oracle.com
-* NetBeans IDE, NetBeans 9 nightly is highly recommended, http://www.netbeans.org (Currently it is being migrated to Apache, http://netbeans.apache.org)
-* Glassfish v5, http://github.com/glassfish
+### Install JDK 8 
 
+1. Get the latest Oracle Java 8, http://java.oracle.com
+2. Follow [the offical installation guide](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install it into your local system.
+3. Verify the installation, open terminal and type `java --version`, it should the java version info.
+
+### Install NetBeans
+
+NetBeans is being migrated to Apache Foundation as [an incubating project](http://netbeans.apache.org), and NetBeans 9 is currently in development.
+
+1. Download NetBeans from http://www.netbeans.org,  NetBeans 9 nightly is highly recommended.
+2. Install it into your local system.
+
+### Glassfish v5
+
+1. Download Glassfish v5, http://github.com/glassfish
+2. Exract the archive into your local disc.
+3. Open NetBeans IDE, click **Service** tab.
+4. Right click the **Server** ndoe, and click **Add Server** and follow the wizard to add Glassfish v5 into IDE.
+
+
+### Import sample codes
 Starts up NetBeans IDE, and open the root project. Maven projects are recognised by NetBeans IDE automaticially.
 	
 ![nb](nb-javaee8.png)	
@@ -70,7 +90,7 @@ Click any subproject node under **Modules** to open the certain project, and run
 
 ## References
 
-I create a repository to collect all useful Java EE 8 resources, check [Awesome Java EE 8](https://github.com/hantsy/awesome-javaee8).
+I create a repository to collect all useful Java EE 8 resources, check the latest [Awesome Java EE 8](https://github.com/hantsy/awesome-javaee8) checklist.
 
 
 
