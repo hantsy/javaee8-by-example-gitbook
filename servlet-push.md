@@ -29,5 +29,9 @@ There is a warning flag on the https icon of address bar, the SSL certificate in
 
 ![Server push](servlet-push2.png)
 
+In the Network tab of developer tools, you will the *main.css* is initialized by Push.
+
+![Server Push](servlet-push3.png) 
+
 
 Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my github account, and have a try.

@@ -50,5 +50,55 @@ public class TestServlet extends HttpServlet {
 }
 ```
 
+A client to send chunked data.
+
+```java
+@WebServlet("")
+public class ClientServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
+
+        res.setContentType("text/plain");
+        StringBuilder sb = new StringBuilder();
+
+        String hostStr = req.getServerName();
+        int port = req.getServerPort();
+
+        try (
+            Socket socket = new Socket(hostStr, port);
+            OutputStream output = socket.getOutputStream();
+            InputStream input = socket.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(input))
+        ) {
+            String reqStr = (new StringBuffer("POST /ee8-servlet-trailer/test HTTP/1.1\r\n")).
+                append("Host: " + hostStr + "\r\n").
+                append("Transfer-encoding: chunked\r\n").
+                append("Connection: close\r\n").
+                append("trailer: foo\r\n").
+                append("\r\n").
+                append("5\r\n").
+                append("hello\r\n").
+                append("0\r\n").
+                append("foo: A\r\n").
+                append("\r\n").
+                toString();
+
+            output.write(reqStr.getBytes(Charset.forName("US-ASCII")));
+
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                if (line.startsWith("bar")) {
+                    sb.append(line).append("\r\n");
+                }
+            }
+        }
+
+        res.getWriter().write(sb.toString());
+    }
+}
+```
+
+
 Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my github account, and have a try.
  
