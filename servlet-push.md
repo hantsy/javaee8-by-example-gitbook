@@ -20,12 +20,11 @@ public class PushServlet extends HttpServlet {
 }
 ```
 
-Run this application on Glassfish v5, navigate to [http://localhost:8080/servlet-push/](https://localhost:8080/servlet-push/), it will redirect to [https://localhost:8181/servlet-push/](https://localhost:8181/servlet-push/) soon.
+Run this application on Glassfish v5 in NetBeans IDE, it will open [https://localhost:8181/servlet-push/](https://localhost:8181/servlet-push/) in browser instead of [http://localhost:8080/servlet-push/](https://localhost:8080/servlet-push/).
 
 ![Server push](servlet-push1.png)
 
 There is a warning flag on the https icon of address bar, the SSL certificate in Glassfish v5 is not recognised by Firefox. Click it and add `localhost` to the exception and make Firefox trust it.
-
 
 ![Server push](servlet-push2.png)
 
