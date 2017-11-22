@@ -64,7 +64,7 @@ Clone it into your local disk.
 
 1. Get the latest Oracle Java 8, http://java.oracle.com
 2. Follow [the offical installation guide](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install it into your local system.
-3. Verify the installation, open terminal and type `java --version`, it should the java version info.
+3. Verify the installation, open terminal and type `java --version`, it should print java version info.
 
 ### Install NetBeans IDE
 
@@ -79,13 +79,15 @@ NetBeans is being migrated to Apache Foundation as [an incubating project](http:
 
 1. Download Glassfish v5 from http://github.com/glassfish
 2. Exract the archive into your local disc.
-3. Open NetBeans IDE, click **Service** tab.
-4. Right click the **Server** ndoe, and click **Add Server** and follow the wizard to add Glassfish v5 into IDE.
+3. Open NetBeans IDE, click **Services** tab. If it is not opend, open it from **Window** menu.
+4. Right click the **Servers** ndoe, in the popup context menu, click **Add Server** and follow the wizard to add Glassfish v5 into your IDE.
 
 
 ### Import sample codes
 
-Starts up NetBeans IDE, and open the root project. Maven projects are recognised by NetBeans IDE automaticially.
+1. Starts up NetBeans IDE.
+2. Click **Open** icon or **File**/**Open** menu to select a project. Maven projects are recognised by NetBeans IDE automaticially.
+3. Select the above cloned project, open it in NetBeans IDE, it looks like.
 	
 ![nb](nb-javaee8.png)	
 
