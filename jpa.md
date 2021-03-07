@@ -23,6 +23,4 @@ You do not need a collection concept annotation to wrap these.
 
 Other updates including:
 
-* [Java 8 Datetime support](jpa-datetime.md)
-* [Return Stream based result from Query](jpa-streamresult.md)
-* [More CDI Alignments](jpa-cdi.md)
+

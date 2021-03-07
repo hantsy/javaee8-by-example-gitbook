@@ -10,6 +10,4 @@ Java EE Security API provides portable interfaces for HTTP authentication and id
 
 Beside these, such as `Authenticaiton`, `Authorization`, `UserPricinpal`, `Realm` tec are very similar with [the terminology from Apache Shiro](https://shiro.apache.org/terminology.html).
 
-* [HttpAuthenticationMechanism](security-auth.md)
-* [IdentityStore](security-store.md)
-* [SecurityContext](security-context.md)
+
