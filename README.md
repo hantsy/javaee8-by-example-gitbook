@@ -1,4 +1,4 @@
-# Java EE 8 By Example
+# Introduction
 
 Java EE 8 brings a plenty of new features which are valuable to build modern applications.
 
@@ -8,7 +8,7 @@ I have spent some time on updating myself to the newest Java EE 8 technology sta
 
 All sample codes mentioned in this book can be found [here](https://github.com/hantsy/ee8-sandbox).
 
-And the source codes of this book itself are also hosted on my github, check [here](https://github.com/hantsy/javaee8-by-example-gitbook).
+And the source codes of this book itself are also hosted on my GitHub, check [here](https://github.com/hantsy/javaee8-by-example-gitbook).
 
 ## Read it online
 
@@ -16,6 +16,5 @@ This book will be synchronized to Gitbook, go [here](https://hantsy.gitbooks.io/
 
 ## Contribution
 
-This is an open source book, if you have some suggestions or find some issues (even grammar errors, I am a non-English guy), do not hesitate to file an issue on [Github issues](https://github.com/hantsy/javaee8-by-example-gitbook/issues) or send a pull request directly.
-
+This is an open source book, if you have some suggestions or find some issues \(even grammar errors, I am a non-English guy\), do not hesitate to file an issue on [Github issues](https://github.com/hantsy/javaee8-by-example-gitbook/issues) or send a pull request directly.
 

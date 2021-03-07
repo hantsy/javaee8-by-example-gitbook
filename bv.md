@@ -1,25 +1,25 @@
-# Bean Validation 2.0(JSR380)
+# Bean Validation 2.0
 
-Bean Validation 2.0 added more alignments with Java 8 and  CDI, and bring a series of new annotations.
+Bean Validation 2.0 added more alignments with Java 8 and CDI, and bring a series of new annotations.
 
-* Supports Java 8 Datetime and `Optional`.
+* Supports Java 8 Date time and `Optional`.
 * Supports annotations applied on parameterized type, such as `List<@Email String> emails`.
 * Add a series of new annotations, eg. `@Email`,`@NotEmpty`, `@NotBlank`, `@Positive`, `@PositiveOrZero`, `@Negative`, `@NegativeOrZero`, `@PastOrPresent` and `@FutureOrPresent`.
 
 Let's create a simple example to experience it.
 
-```
+```text
 public class Todo implements Serializable {
 
     @NotNull
     @NotBlank
     private String name;
-    
+
     private String description;
-    
+
     @PastOrPresent
     private LocalDateTime creationDate = LocalDateTime.now();
-    
+
     @Future
     private LocalDateTime dueDate = LocalDateTime.now().plusDays(2);
 
@@ -54,7 +54,7 @@ public class Todo implements Serializable {
     public void setDueDate(LocalDateTime dueDate) {
         this.dueDate = dueDate;
     }
-    
+
 
 }
 ```
@@ -116,6 +116,7 @@ public class TodoTest {
 }
 ```
 
-`Validator` or `ValidatorFactory` is avaiable for injection, you can inject them into your beans as other CDI beans. `validate` method will reture a colleciton of `ConstraintViolation`.
+`Validator` or `ValidatorFactory` is available for injection, you can inject them into your beans as other CDI beans. `validate` method will return a collection of `ConstraintViolation`.
 
-Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my github account, and have a try.
+Grab the [source codes](https://github.com/hantsy/ee8-sandbox) from my GitHub account, and have a try.
+
