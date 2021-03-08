@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Overview](overview.md)
+* [Overview](overview/README.md)
 * [JSF 2.3](jsf/README.md)
   * [Activating CDI in JSF 2.3](jsf/jsf-activation.md)
   * [Run applications in JSF 2.2 compatible mode](jsf/jsf-compatible-mode.md)
