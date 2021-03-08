@@ -40,7 +40,7 @@ git clone https://github.com/hantsy/ee8-sandbox
 
 The book itself is open-sourced and [hosted on Github](https://github.com/hantsy/javaee8-by-example-gitbook), and it is synchronized automatically to Gitbook.io.  You can read the book online.
 
-Gitbook address:  [https://hantsy.gitbooks.io/java-ee-8-by-example/content/](https://hantsy.gitbooks.io/java-ee-8-by-example/content/)
+Gitbook online version:  [https://hantsy.gitbooks.io/java-ee-8-by-example/content/](https://hantsy.gitbooks.io/java-ee-8-by-example/content/)
 
 
 

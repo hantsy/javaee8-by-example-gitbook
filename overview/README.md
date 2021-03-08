@@ -4,25 +4,21 @@ Java EE 7 was born in 2013, after a long-awaited 5 years, we finally got the rel
 
 ## A brief intro of Java EE 8
 
+Unfortunately, most of original proposed specifications are not included in the final Java EE 8. And in a long period, the development were paused for some unknown reasons.
 
-
-But the road to Java EE 8 is not straight, most of proposed specifications are moved out of Java EE 8 finally. And in a long period, the development of some specifications were paused for some unknown reasons.
-
-To save Java EE, the [Java community](https://javaee-guardians.io/) created a [petition](https://www.change.org/p/larry-ellison-tell-oracle-to-move-forward-java-ee-as-a-critical-part-of-the-global-it-industry) and wished Oracle can move forward Java EE more quickly.
+To save Java EE, the [Java community](https://javaee-guardians.io/) created a [petition](https://www.change.org/p/larry-ellison-tell-oracle-to-move-forward-java-ee-as-a-critical-part-of-the-global-it-industry) and wished Oracle can speed up Java EE development progress.
 
 At the same time, IBM worked together with Redhat and other Java communities and launched a new [MicroProfile](http://microprofile.io) which targets lightweight Java EE and cloud native applications. 
 
 > Currently, Microprofile is also part of Eclipse EE4j project.
 
-Although the Java EE 8 way is a little hard, finally it is released to the public.
-
-And surprisingly Oracle decided to [open up Java EE progress](https://blogs.oracle.com/theaquarium/opening-up-java-ee) and [move it to Eclipse foundation](https://blogs.oracle.com/theaquarium/opening-up-ee-update). [An updated petition](https://www.change.org/p/larry-ellison-tell-oracle-to-move-forward-java-ee-as-a-critical-part-of-the-global-it-industry/u/21473794?utm_medium=email&utm_source=petition_update&utm_campaign=146669&sfmc_tk=xZ%2f6z4TGoQ02piKnRtK%2bejNgWC%2bWD6nr3P%2bcjkRrgGJqXJLLTSlXDQ6alq40O5pe&j=146669&sfmc_sub=46994739&l=32_HTML&u=27789648&mid=7259882&jb=1) was created to help moving Java EE to Eclipse more smoothly.
+After Java EE was released,  Oracle decided to [open up Java EE progress](https://blogs.oracle.com/theaquarium/opening-up-java-ee) and [move it to Eclipse foundation](https://blogs.oracle.com/theaquarium/opening-up-ee-update).
 
 Java EE 8 should be the last version released by Oracle\(and Sun\).
 
 ## What is new in Java EE 8
 
-Like me, some developers are a little disappointed about Java EE 8\(JSR 366\) , even complain it came  too late. But no doubt there are still lots of new features and improvements which are valuable to update ourselves.
+Including me, many developers are a little disappointed about Java EE 8\(JSR 366\) , it did not cover all points of the original design and also delayed again and again. But no doubt there are still lots of new features and improvements which are valuable to update ourselves.
 
 There tow new specifications were newly introduced in Java EE 8.
 
@@ -46,6 +42,6 @@ The other specifications such as JMS, Batch have no updates in this version.
 
 Unfortunately, some proposed specifications are not included in Java EE 8, including:
 
-* JSR 371 - MVC is vetoed in the final stage, but it is still existed as a community based specification. 
-* JSR 107 - JCache had missed the last train of Java EE 7, and also lost its attractiveness in Java EE 8.
+* JSR 371 - MVC is vetoed in the final stage, but it is still existed as a community driven specification. 
+* JSR 107 - JCache had missed the last train of Java EE 7, and also be absent from Java EE 8.
 
