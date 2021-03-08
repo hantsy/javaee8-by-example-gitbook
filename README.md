@@ -20,6 +20,8 @@ Jakarta EE 8 is the first version published by Eclipse Foundation, the APIs is t
 
 > In this book, we use Java EE  and Java EE maven architypes through the whole book, all codes are compatible with Jakarta EE 8. 
 
+I also created a repository to collect all useful Java EE 8/Jakarta EE 8 resources, check the latest [Awesome Java EE 8](https://github.com/hantsy/awesome-javaee8) checklist.
+
 ## Sample Codes
 
 All sample codes used in this book are open-sourced on Github. 
