@@ -40,7 +40,7 @@ At the moment I wrote down the book, there is no more  IDEs support Java EE 8.
 2. Click **Open** icon or **File**/**Open** menu to select a project. Maven projects are recognized by NetBeans IDE automatically.
 3. Select the above cloned project, open it in NetBeans IDE, it looks like.
 
-![nb](..\.gitbook\assets\nb-javaee8.png)
+![nb](../.gitbook/assets/nb-javaee8.png)
 
 Click any sub project node under **Modules** to open the certain project, and run it on Glassfish application server by click **Run** in the context menu.
 
