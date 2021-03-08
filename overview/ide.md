@@ -1,6 +1,6 @@
 # Example Codes
 
-You can get the source codes from my GitHub account, and install JDK 8, NetBeans 8.2 or 9, Glassfish v5, and play the sample codes yourself.
+You can get the sample codes of this book from my GitHub account, and install JDK 8, NetBeans 8.2 or 9, Glassfish v5, and play the sample codes yourself.
 
 ### Get source codes
 
@@ -14,18 +14,18 @@ git clone https://github.com/hantsy/ee8-sandbox
 
 ### Install Oracle JDK 8
 
-1. Get the [latest Oracle Java 8](http://java.oracle.com)
+1. Get the [latest Oracle Java 8](http://java.oracle.com), alternatively you can also get a copy of [AdoptOpenJDK](https://adoptopenjdk.net/) instead.
 2. Follow [the official installation guide](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) to install it into your local system.
-3. Verify the installation, open terminal and type `java --version`, it should print java version info.
+3. To verify the installation, open a terminal and type `java --version`, it should print java version info.
 
 ### Install NetBeans IDE
 
-Currently no IDEs have built-in Java EE 8 support.
+At the moment I wrote down the book, there is no more  IDEs support Java EE 8.
 
-NetBeans is being migrated to Apache Foundation as [an incubating project](http://netbeans.apache.org), and NetBeans 9 is still under active development\(but NetBeans 9 targets Java 9, not Java EE 8\).
-
-1. Download NetBeans from [http://www.netbeans.org](http://www.netbeans.org),  NetBeans 9 nightly is highly recommended.
+1. Download NetBeans from [http://www.netbeans.org](http://www.netbeans.org),  NetBeans 8.2+ is required.
 2. Install it into your local system.
+
+>NetBeans is an Apache project now, check https://netbeans.apache.org
 
 ### Install Glassfish v5
 
