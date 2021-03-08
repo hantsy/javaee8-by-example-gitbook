@@ -37,7 +37,7 @@ At the moment I wrote down the book, there is no more  IDEs support Java EE 8.
 ### Import sample codes
 
 1. Starts up NetBeans IDE.
-2. Click **Open** icon or **File**/**Open** menu to select a project. Maven projects are recognised by NetBeans IDE automatically.
+2. Click **Open** icon or **File**/**Open** menu to select a project. Maven projects are recognized by NetBeans IDE automatically.
 3. Select the above cloned project, open it in NetBeans IDE, it looks like.
 
 ![nb](..\.gitbook\assets\nb-javaee8.png)
