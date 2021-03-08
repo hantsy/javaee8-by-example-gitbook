@@ -6,17 +6,19 @@ I have spent some time on updating myself to the newest Java EE 8 technology sta
 
 ## Audience 
 
-I assume you know well about Java 8 and have much experience with Java EE 7. 
+This book is not for the newbie of Java EE, and I also assume you know well about Java 8.
 
-This book will not cover the existing content in Java EE 7. If you are new to Java EE or need a comprehensive guide of Java EE, I suggest you read the official [Java EE Tutorial](https://javaee.github.io/tutorial/) carefully.
+This book will not cover the existing content in Java EE 7.  If you have experience with Java EE 7 and want to update to Java EE 8, this book is for you.
 
+If you are new to Java EE or need a comprehensive guide of Java EE, I suggest you read the official [Java EE Tutorial](https://javaee.github.io/tutorial/) firstly.
 
+> The new Jakarta EE tutorial is moved to https://eclipse-ee4j.github.io/jakartaee-tutorial/toc.html.
 
 ## About Jakarta EE 8
 
 After  Java EE 8 was released, Eclipse Foundation took over the responsibilities of developing Java EE, due to Java EE regulations, the new Java EE was renamed to Jakarta EE. 
 
-Jakarta EE 8 is the first version published by Eclipse Foundation, the APIs is totally compatible with the previous Java EE 8.  More about Jakarta EE introduction, go to [Kickstart a Jakarta EE 8 application](https://hantsy.github.io/jakartaee8-starter-boilerplate/) for more details.
+Jakarta EE 8 is the first version published by Eclipse Foundation, the APIs is totally compatible with the previous Java EE 8.  To get started with Jakarta EE 8, go to [Kickstart a Jakarta EE 8 application](https://hantsy.github.io/jakartaee8-starter-boilerplate/) for more details.
 
 > In this book, we use Java EE  and Java EE maven architypes through the whole book, all codes are compatible with Jakarta EE 8. 
 
